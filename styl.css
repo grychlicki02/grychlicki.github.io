@@ -1,0 +1,386 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('zdjecia/gif-strona-glowna.gif');
+    background-color: rgb(240, 240, 240);
+    background-size: cover;
+    background-position: center;
+    color: #000000;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+}
+
+nav {
+    background-color: #333;
+    padding: 10px 0;
+    animation: fadeInDown 1s ease-in-out;
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+li {
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 50px;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #2b7a99;
+}
+
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider-container a {
+    display: block;
+}
+
+.slider-container img {
+    width: 100%;
+    height: auto;
+}
+
+#logo {
+    background-image: url('zdjecia/zdjeciedoproejktuu.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 125px;
+    width: 125px;
+    margin-left: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+#contact-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+#about-us {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+#top-tile,
+#about-us ul li {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#top-tile:hover,
+#about-us ul li:hover {
+    background-color: #f2f2f2;
+    transform: scale(1.05);
+}
+
+#about {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#about h2 {
+    color: #000000;
+}
+
+#about p {
+    line-height: 1.6;
+    color: #000000;
+}
+
+#about ul {
+    list-style: none;
+    padding: 0;
+}
+
+#about ul li {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#about ul li:hover {
+    background-color: #f2f2f2;
+    transform: scale(1.05);
+}
+
+#contact-info {
+    max-width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#contact-info:hover {
+    background-color: #f2f2f2;
+    transform: scale(1.05);
+}
+
+#contact-info h2 {
+    text-align: center;
+    color: #000000;
+}
+
+#contact-info p {
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+}
+
+.social-media a {
+    margin: 0 10px;
+}
+
+#contact-form {
+    max-width: 600px;
+    margin: auto;
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+}
+
+#contact-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+#content {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#contact-form {
+    flex: 1;
+    max-width: 600px;
+    margin-right: 20px;
+}
+
+#contact-info {
+    flex: 1;
+    max-width: 400px;
+}
+
+.social-media a {
+    color: #000000;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.social-media a:hover {
+    color: #2b7a99;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-size: 12px;
+}
+
+@keyframes code {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.code-animation::after {
+    content: '|';
+    display: inline-block;
+    margin-left: 5px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.hidden {
+    opacity: 0;
+}
+
+#welcome-section {
+    text-align: center;
+    padding: 50px 0;
+}
+
+#welcome-text h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+#sub-text {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #fff;
+}
+
+.welcome-text {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    font-size: 24px;
+    border-right: 2px solid #fff;
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #fff;
+    }
+}
+
+@keyframes changeText {
+    0%, 25% {
+        content: "Witaj na stronie!";
+    }
+    25%, 50% {
+        content: "Odkryj nowe możliwości!";
+    }
+    50%, 75% {
+        content: "Zapraszamy do eksploracji!";
+    }
+    75%, 100% {
+        content: "Znajdź swoje wymarzone miejsce!";
+    }
+}
+
+#welcome-text h1 {
+    margin: 0;
+}
+
+#welcome-text h1::before {
+    content: "Witaj na stronie!";
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #fff;
+    animation: typing 4s steps(40, end), slideLeft 4s linear infinite;
+}
+
+@keyframes slideLeft {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
+}
+
+.welcome-text {
+    text-align: left;
+    margin-left: 20px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.main-content {
+    background-image: url('gif-strona-glowna.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.moj-gif {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+}

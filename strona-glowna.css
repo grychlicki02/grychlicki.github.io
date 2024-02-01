@@ -1,0 +1,169 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+    background-size: cover;
+    background-position: center;
+    color: #000000; 
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 0.0025em 0;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+}
+
+#logo {
+    background-image: url('zdjecia/zdjeciedoproejktuu.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 125px;
+    width: 125px;
+    margin-left: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Dodaj style dla nawigacji */
+nav {
+    background-color: #333;
+    padding: 8px 0;
+    animation: fadeInDown 1s ease-in-out;
+    display: flex;
+    justify-content: center; 
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+li {
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #2b7a99;
+}
+
+.podzial {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start; 
+}
+
+#welcome-section {
+    flex-grow: 1; 
+    padding: 20px; 
+}
+
+.welcome-text h1,
+.welcome-text h2 {
+    margin: 0; 
+    padding: 0.5em 0; 
+}
+
+#animation-container {
+    flex-shrink: 0; 
+    width: 50%; 
+}
+
+#animation-container img {
+    width: 100%; 
+    height: auto; 
+    display: block; 
+}
+
+
+/* Stylizacja stopki */
+footer {
+    position: fixed; 
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 8px; 
+    text-align: center;
+    font-size: 12px; 
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    50% { border-color: transparent; }
+}
+
+.welcome-text {
+    text-align: left; 
+    padding-left: 50px; 
+}
+
+.welcome-text h1,h2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 23px; 
+    overflow: hidden; 
+    border-right: .15em solid rgb(255, 255, 255); 
+    white-space: nowrap; 
+    letter-spacing: .15em; 
+    animation: 
+        typing 4s steps(40, end), 
+        blink-caret .75s step-end infinite; 
+    color: #000000; 
+    max-width: none; 
+    display: inline-block; 
+}
+
+
+.welcome-text p {
+    font-size: 1em; 
+    color: #9A55FF; 
+}
+
+
+@media screen and (max-width: 428px) {
+    #logo {
+        margin: 5px; 
+    }
+    li {
+        margin-right: 5px;
+    }
+    .welcome-text h1,h2 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 5px; 
+    }
+
+    
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+   
+    header {
+        grid-template-columns: 1fr; 
+    }
+
+}
+
+
+
+

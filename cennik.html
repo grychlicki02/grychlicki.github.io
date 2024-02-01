@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cennik.css">
+    <title>Grzegorz Informatyk - Cennik</title>
+</head>
+
+<body>
+    <header>
+        <div id="logo"></div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">STRONA GŁÓWNA</a></li>
+            <li><a href="o nas.html">O NAS</a></li>
+            <li><a href="projekty.html">PROJEKTY</a></li>
+            <li><a href="cennik.html">CENNIK</a></li>
+            <li><a href="kontakt.html">KONTAKT</a></li>
+        </ul>
+    </nav>
+
+    <section id="content">
+        <div id="calculator-tiles">
+            <div class="calculator">
+                <h2>Kalkulator Stawki Godzinowej 1 (50 zł/godz)</h2>
+                <form class="calculator-form" id="calculator-form-1">
+                    <label for="hours-worked-1">Liczba przepracowanych godzin:</label>
+                    <input type="number" id="hours-worked-1" min="0" required>
+                    <button type="button" class="calculate-button" data-index="1">Oblicz</button>
+                    <div class="result"></div>
+                </form>
+            </div>
+            <div class="calculator">
+                <h2>Kalkulator Stawki Godzinowej 2 (50 zł/godz)</h2>
+                <form class="calculator-form" id="calculator-form-2">
+                    <label for="hours-worked-2">Liczba przepracowanych godzin:</label>
+                    <input type="number" id="hours-worked-2" min="0" required>
+                    <button type="button" class="calculate-button" data-index="2">Oblicz</button>
+                    <div class="result"></div>
+                </form>
+            </div>
+            <div class="calculator">
+                <h2>Kalkulator Stawki Godzinowej 3 (70 zł/godz)</h2>
+                <form class="calculator-form" id="calculator-form-3">
+                    <label for="hours-worked-3">Liczba przepracowanych godzin:</label>
+                    <input type="number" id="hours-worked-3" min="0" required>
+                    <button type="button" class="calculate-button" data-index="3">Oblicz</button>
+                    <div class="result"></div>
+                </form>
+            </div>
+            <div class="total-results">
+                <h2>Łączny wyniki:</h2>
+                <div class="total-result" id="total-result-1"></div>
+                <div class="total-result" id="total-result-2"></div>
+                <div class="total-result" id="total-result-3"></div>
+                <button type="button" id="calculate-total-button">Oblicz łączny</button>
+                <div class="total-result" id="total-result-total"></div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Grzegorz Rychlicki. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Funkcja do obliczania zarobków za godzinę
+            function calculateHourlyEarnings(hoursWorked, hourlyRate) {
+                return hoursWorked * hourlyRate;
+            }
+
+            // Funkcja do aktualizacji wyników
+            function updateResults(hoursWorked, hourlyRate, resultDiv, totalResultDiv) {
+                if (!isNaN(hoursWorked)) {
+                    const hourlyEarnings = calculateHourlyEarnings(hoursWorked, hourlyRate);
+                    resultDiv.textContent = `Koszt usługi wynosi ${hourlyEarnings} PLN.`;
+                } else {
+                    resultDiv.textContent = "Proszę wypełnić poprawnie pole z liczbą godzin.";
+                }
+            }
+
+            // Obsługa kalkulatora
+            const calculatorForms = document.querySelectorAll(".calculator-form");
+            calculatorForms.forEach(function (form) {
+                const calculateButton = form.querySelector(".calculate-button");
+                const resultDiv = form.querySelector(".result");
+                const totalResultDiv = document.getElementById(`total-result-${calculateButton.getAttribute("data-index")}`);
+
+                calculateButton.addEventListener("click", function () {
+                    const hoursWorked = parseInt(form.querySelector("input[type='number']").value);
+                    const hourlyRate = (calculateButton.getAttribute("data-index") === "3") ? 70 : 50;
+                    updateResults(hoursWorked, hourlyRate, resultDiv, totalResultDiv);
+                });
+            });
+
+            // Oblicz łączną sumę zarobków
+            const calculateTotalButton = document.getElementById("calculate-total-button");
+            calculateTotalButton.addEventListener("click", function () {
+                const hoursWorked1 = parseInt(document.getElementById("hours-worked-1").value);
+                const hoursWorked2 = parseInt(document.getElementById("hours-worked-2").value);
+                const hoursWorked3 = parseInt(document.getElementById("hours-worked-3").value);
+
+                const hourlyRate1 = 50;
+                const hourlyRate2 = 50;
+                const hourlyRate3 = 70;
+
+                const totalEarnings = calculateHourlyEarnings(hoursWorked1, hourlyRate1) +
+                                     calculateHourlyEarnings(hoursWorked2, hourlyRate2) +
+                                     calculateHourlyEarnings(hoursWorked3, hourlyRate3);
+
+                document.getElementById("total-result-total").textContent = `Koszt usługi wynosi ${totalEarnings} PLN.`;
+            });
+        });
+    </script>
+</body>
+
+</html>
